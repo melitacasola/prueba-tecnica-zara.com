@@ -1,17 +1,43 @@
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useSearchParams } from "next/navigation"
+
 const EpisodeTable = ({ episodes }) => {
+    const num = useSearchParams()
+    const id = num.get('podcast')
+    console.log('este', id);
+    const handleDirection = ()=>{
+
+        console.log(id);  
+    }
     return (
-        <div className="mt-8">
-            <h2 className="text-lg font-semibold mb-4">Episodies:Aqui</h2>
-            <ul>
-                {episodes.map((episode, index) => (
-                    <li key={index}>
-                        <h3>Title: {episode.title}</h3>
-                        <p>Date: {episode.pubDate}</p>
-                        <p>Duration: {episode.duration}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        
+            <table className="border shadow m-4">
+                <div className="m-5">
+
+                    <thead className="px-4 border-b-[2.5px]">
+                        <tr className="px-4 border-b-[2.5px] pt-8">
+                            <th className="text-left p-2">Title</th>
+                            <th className="text-left p-2">Date</th>
+                            <th className="text-left p-2">Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                        
+                        {
+                            episodes.map((episode, index) => (
+                                <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+                                    <td className="text-sky-600 border-b-2 p-2" onClick={handleDirection}><Link href={``} >{episode.title}</Link></td>
+                            
+                                    <td className="border-b-2 text-center p-2">{episode.pubDate}</td>
+                                    <td className="border-b-2 text-center p-2">{episode.duration}</td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </div>
+            </table>
+        
     );
 }
 

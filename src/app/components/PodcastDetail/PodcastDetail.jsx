@@ -1,10 +1,7 @@
 'use client'
-import { fetchPodcastDetail } from "@/services/useFetchApi";
+import { fetchPodcastDetail } from "@/services/fetchPodcastDetail";
 
 import { useState, useEffect } from "react";
-import ImageComponent from "../ImageComponent/ImageComponent";
-import PodcastDetailsComponent from "../PodcastDetailsComponent/PodcastDetailsComponent";
-import EpisodeList from "../EpisodeList/EpisodeList";
 import PodcastDetailCard from "../PodcastDetailCard/PodcastDetailCard";
 import EpisodeSection from "../EpisodeSection/EpisodeSection";
 
@@ -65,11 +62,11 @@ const PodcastDetail = ({podcastId }) => {
     }
 
     return (
-        <>
+        <div className="flex flex-row">
             <PodcastDetailCard podcastDetail={podcastDetail} description={description}/>
             <EpisodeSection episodes={episodes} />
 
-        </>
+        </div>
     )
 
 }

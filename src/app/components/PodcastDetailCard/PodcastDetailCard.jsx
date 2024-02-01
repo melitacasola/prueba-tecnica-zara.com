@@ -4,13 +4,16 @@ import PodcastDetailsComponent from "../PodcastDetailsComponent/PodcastDetailsCo
 
 const PodcastDetailCard = ({ podcastDetail, description }) => {
     return (
-        
-        <section>
-            <div className="flex flex-col w-80">
+        <section className="mx-8">
+            <div className="flex flex-col w-60 border m-6 shadow">
                 <ImageComponent src={podcastDetail.artworkUrl100} alt={podcastDetail.trackName}/>
+                <div className="border-b border-gray-300 mx-2"></div>
                 <PodcastDetailsComponent podcastDetail={podcastDetail} />
-                <h4>Descripcion</h4>
-                <p className="text-xs italic">{description}</p>
+                <div className="border-b border-gray-300 mx-2"></div>
+                <div className="p-2 text-sm">
+                    <h4 className='font-semibold py-1'>Descripcion: </h4>
+                    <p className="text-xs italic">{description}</p>
+                </div>
             </div>
         </section>
         

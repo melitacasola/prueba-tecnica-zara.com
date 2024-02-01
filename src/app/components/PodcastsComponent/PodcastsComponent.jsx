@@ -1,15 +1,14 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { filterData, useFetchApi } from '@/services/useFetchApi';
+import { useFetchApi } from '@/services/useFetchApi';
 import Podcast from '../Podcast/Podcast';
+import { filterData } from '@/utils/filterData';
 
 
 const PodcastsComponent = ({query}) => {
     const [podcasts, setPodcasts] = useState([]);
     const filteredPodcasts = filterData(podcasts, query)
-
-    // console.log('filteredPodcasts', filteredPodcasts);
     
     useEffect(() => {
 
@@ -22,7 +21,7 @@ const PodcastsComponent = ({query}) => {
         }
         const storedPodcasts = getStoredPodcasts();
         
-        // Verificar si han pasado más de 1 día desde la última solicitud
+        // verifico timepo.. de un dia
         const lastFetchTime = localStorage.getItem('lastFetchTime');
         const currentTime = new Date().getTime();
         const oneDay = 24 * 60 * 60 * 1000; // 1 día en milisegundos
@@ -40,7 +39,7 @@ const PodcastsComponent = ({query}) => {
             fetchData()
             
         } else {
-            // Utilizar los podcasts almacenados
+            // los podcasts almacenados
             setPodcasts(storedPodcasts);
         }
     }, [])

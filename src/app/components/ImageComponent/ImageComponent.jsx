@@ -2,12 +2,13 @@ import Image from "next/image";
 
 const ImageComponent = ({ src, alt }) => {
     return (
-        <div className="w-100 h-100">
+        <div className="px-4 py-4 flex flex-col items-center">
             <Image 
                 src={src}
-                width={100}
-                height={100}
+                width={170}
+                height={150}
                 alt={alt}
+                className="rounded"
             />
         </div>
     );
