@@ -6,7 +6,7 @@ import Search from "./components/Search/Search";
 
 export default function Home({searchParams}) {
   
- const query = searchParams?.query || ''
+  const query = searchParams?.query || ''
 
   return (
     <main className="mx-24 my-7">

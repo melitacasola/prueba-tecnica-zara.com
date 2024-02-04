@@ -12,7 +12,8 @@ const PodcastDetailCard = ({ podcastDetail, description }) => {
                 <div className="border-b border-gray-300 mx-2"></div>
                 <div className="p-2 text-sm">
                     <h4 className='font-semibold py-1'>Descripcion: </h4>
-                    <p className="text-xs italic">{description}</p>
+                    <div className="italic text-xs" dangerouslySetInnerHTML={{ __html:description }}></div>
+                    
                 </div>
             </div>
         </section>

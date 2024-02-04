@@ -2,8 +2,10 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <header className="border-solid border-b-2 border-slate-200 pt-8">
-            <Link href={'/'} className="text-sky-600 font-bold text-xl px-24">Podcaster</Link>
+        <header className="mt-6">
+            <Link href={'/'} className="text-sky-600 font-bold text-2xl px-24">Podcaster</Link>
+            <div className="border-b border-gray-300 mx-4 my-2"></div>
+
         </header>
     );
 };

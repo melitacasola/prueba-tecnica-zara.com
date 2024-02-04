@@ -19,7 +19,6 @@ const PodcastDetail = ({podcastId }) => {
                     setPodcastDetail(detail.results[0]);
     
                     const feedUrl = detail.results[0].feedUrl; // Acceder a feedUrl aquí
-                    console.log(feedUrl)
                     // Obtener el contenido XML del feed URL
                     const response = await fetch(feedUrl);
                     const xmlText = await response.text();

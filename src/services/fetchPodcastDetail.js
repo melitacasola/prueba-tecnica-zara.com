@@ -9,7 +9,7 @@ export const fetchPodcastDetail = async (podcastId) => {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log("quiero saber data:", data);
+        
         return data
     } catch (error) {
         console.error('Error fetching podcast detail:', error);

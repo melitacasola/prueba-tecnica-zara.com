@@ -1,14 +1,14 @@
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useSearchParams } from "next/navigation"
+
+
+import { usePathname, useRouter } from 'next/navigation'
+
 
 const EpisodeTable = ({ episodes }) => {
-    const num = useSearchParams()
-    const id = num.get('podcast')
-    console.log('este', id);
-    const handleDirection = ()=>{
+    const pathname = usePathname();
+    const  router  = useRouter();
 
-        console.log(id);  
+    const handleDirection = (index)=>{
+        router.push(`${pathname}/episode/${index}`) 
     }
     return (
         
@@ -27,7 +27,7 @@ const EpisodeTable = ({ episodes }) => {
                         {
                             episodes.map((episode, index) => (
                                 <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-                                    <td className="text-sky-600 border-b-2 p-2" onClick={handleDirection}><Link href={``} >{episode.title}</Link></td>
+                                    <td className="text-sky-600 border-b-2 p-2" onClick={()=>handleDirection(`${index}`)} >{ episode.title }</td>
                             
                                     <td className="border-b-2 text-center p-2">{episode.pubDate}</td>
                                     <td className="border-b-2 text-center p-2">{episode.duration}</td>
