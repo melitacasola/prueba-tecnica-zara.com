@@ -8,6 +8,7 @@ import { filterData } from '@/utils/filterData';
 
 const PodcastsComponent = ({query}) => {
     const [podcasts, setPodcasts] = useState([]);
+    
     const filteredPodcasts = filterData(podcasts, query)
     
     useEffect(() => {
